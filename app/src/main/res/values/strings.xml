@@ -14,5 +14,4 @@
     <string name="sSpeedWind">Скорость ветра</string>
     <string name="sMetersPerSecond">м/с</string>
     <string name="sAtmospherePressureMeasure">мм.рт.ст.</string>
-    <string name="dotbydot">: </string>
 </resources>
