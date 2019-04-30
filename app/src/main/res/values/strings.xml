@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">weatherApp</string>
-    <string name="degrees_celsius">℃</string>
+    <string name="sDegreesCelsius">℃</string>
+    <string name="sEnterCityName">Введите название города</string>
+    <string name="sWithoutPrecipitation">без осадков</string>
+    <string name="sWaitSnow">возможен снег</string>
+    <string name="sTitleCity">Город</string>
+    <string name="sTitleTemperature">Температура</string>
+    <string name="sTitlePrecipitation">Осадки</string>
+    <string name="sBtnBack">назад</string>
+    <string name="sTemperature">Температура</string>
+    <string name="sWind">Скорость ветра</string>
+    <string name="sAtmospherePressure">Атмосфетное давление</string>
+    <string name="sSpeedWind">Скорость ветра</string>
+    <string name="sMetersPerSecond">м/с</string>
+    <string name="sAtmospherePressureMeasure">мм.рт.ст.</string>
 </resources>
