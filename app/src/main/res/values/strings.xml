@@ -1,17 +1,21 @@
 <resources>
-    <string name="app_name">weatherApp</string>
+    <string name="app_name">Погодное приложение</string>
     <string name="sDegreesCelsius">℃</string>
-    <string name="sEnterCityName">Введите название города</string>
-    <string name="sWithoutPrecipitation">без осадков</string>
-    <string name="sWaitSnow">возможен снег</string>
-    <string name="sTitleCity">Город</string>
-    <string name="sTitleTemperature">Температура</string>
-    <string name="sTitlePrecipitation">Осадки</string>
-    <string name="sBtnBack">назад</string>
-    <string name="sTemperature">Температура</string>
-    <string name="sWind">Скорость ветра</string>
-    <string name="sAtmospherePressure">Атмосфетное давление</string>
-    <string name="sSpeedWind">Скорость ветра</string>
-    <string name="sMetersPerSecond">м/с</string>
-    <string name="sAtmospherePressureMeasure">мм.рт.ст.</string>
+    <string name="sEnterCityName">Enter the name of the city</string>
+    <string name="sWithoutPrecipitation">without precipitationв</string>
+    <string name="sWaitSnow">wait snow</string>
+    <string name="sTitleCity">City</string>
+    <string name="sTitleTemperature">Temperature</string>
+    <string name="sTitlePrecipitation">Precipitation</string>
+    <string name="sBtnBack">Back</string>
+    <string name="sTemperature">Temperature</string>
+    <string name="sWind">Wind speed</string>
+    <string name="sAtmospherePressure">Atmosphere pressureе</string>
+    <string name="sSpeedWind">Speed wind</string>
+    <string name="sMetersPerSecond">m/s</string>
+    <string name="sAtmospherePressureMeasure">mmHg.</string>
+    <string name="colonAndSpace">": "</string>
+    <string name="space">" "</string>
+    <string name="exCBWind">"2 "</string>
+    <string name="exSWAtmospherePressure">"751.3 "</string>
 </resources>

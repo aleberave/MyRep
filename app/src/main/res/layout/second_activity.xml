@@ -10,8 +10,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="0dp"
-        android:layout_weight="1">
+        android:layout_marginTop="0dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -107,16 +106,22 @@
         <ImageView
             android:id="@+id/ivCityPrecipitation"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/night_snow" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/night_snow"/>
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0"
+            android:onClick="btnBackClick"
+            android:text="@string/sBtnBack"
+            style="@style/myBtnStyle"/>
+
     </TableLayout>
 
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="@string/sBtnBack"
-        android:layout_gravity="center"/>
 
 </LinearLayout>

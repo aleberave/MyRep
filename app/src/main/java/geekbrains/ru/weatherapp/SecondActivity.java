@@ -25,6 +25,10 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
 
+        init();
+    }
+
+    private void init() {
         tvCityName = findViewById(R.id.tvCityName);
         tvCityTemperature = findViewById(R.id.tvCityTemperature);
         tvCityPrecipitation = findViewById(R.id.tvCityPrecipitation);
@@ -38,23 +42,28 @@ public class SecondActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         getCity();
-        btnBackClick();
     }
 
     private void getCity() {
         Parsel parsel = (Parsel) getIntent().getExtras().getSerializable(MainActivity.CITY_NAME);
 
-        tvCityName.setText(": " + parsel.text);
+        tvCityName.setText(getResources().getString(R.string.colonAndSpace) + parsel.text);
 
         if (parsel.checkBoxTemperature) {
             getTemperature();
-            tvCityTemperature.setText(": " + temperature + " " + getResources().getString(R.string.sDegreesCelsius));
+            tvCityTemperature.setText(getResources().getString(R.string.colonAndSpace) +
+                    temperature + getResources().getString(R.string.space) +
+                    getResources().getString(R.string.sDegreesCelsius));
         }
         if (parsel.checkBoxWind) {
-            tvSpeedWind.setText(": 2 " + getResources().getString(R.string.sMetersPerSecond));
+            tvSpeedWind.setText(getResources().getString(R.string.colonAndSpace) +
+                    getResources().getString(R.string.exCBWind) +
+                    getResources().getString(R.string.sMetersPerSecond));
         }
         if (parsel.switchAtmospherePressure) {
-            tvAtmospherePressure.setText(": 751.3 " + getResources().getString(R.string.sAtmospherePressureMeasure));
+            tvAtmospherePressure.setText(getResources().getString(R.string.colonAndSpace) +
+                    getResources().getString(R.string.exSWAtmospherePressure) +
+                    getResources().getString(R.string.sAtmospherePressureMeasure));
         }
     }
 
@@ -71,7 +80,7 @@ public class SecondActivity extends AppCompatActivity {
         }
     }
 
-    private void btnBackClick() {
+    public void btnBackClick(View view) {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
