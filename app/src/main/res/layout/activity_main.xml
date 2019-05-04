@@ -54,6 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="OK" />
+        android:onClick="btnOkClick"
+        android:text="OK"
+        style="@style/myBtnStyle"/>
 
 </LinearLayout>

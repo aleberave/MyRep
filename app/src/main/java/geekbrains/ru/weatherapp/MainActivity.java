@@ -33,18 +33,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        init();
+    }
+
+    private void init() {
         enterCityName = findViewById(R.id.enterCityName);
         cbTemperature = findViewById(R.id.cbTemperature);
         cbWind = findViewById(R.id.cbWind);
         swAtmospherePressure = findViewById(R.id.swAtmospherePressure);
         btnOk = findViewById(R.id.btnOk);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        btnOkClick();
     }
 
     @Override
@@ -60,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         swAtmospherePressure.setChecked(false);
     }
 
-    private void btnOkClick() {
+    public void btnOkClick(View view) {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,18 +83,10 @@ public class MainActivity extends AppCompatActivity {
         boolean checkedBox = ((CheckBox) view).isChecked();
         switch (view.getId()) {
             case R.id.cbTemperature:
-                if (checkedBox) {
-                    CHECK_BOX_TEMPERATURE = true;
-                } else {
-                    CHECK_BOX_TEMPERATURE = false;
-                }
+                CHECK_BOX_TEMPERATURE = checkedBox;
                 break;
             case R.id.cbWind:
-                if (checkedBox) {
-                    CHECK_BOX_WIND = true;
-                } else {
-                    CHECK_BOX_WIND = false;
-                }
+                CHECK_BOX_WIND = checkedBox;
                 break;
         }
     }
@@ -106,11 +95,7 @@ public class MainActivity extends AppCompatActivity {
         boolean checkedSwitch = ((Switch) view).isChecked();
         switch (view.getId()) {
             case R.id.swAtmospherePressure:
-                if (checkedSwitch) {
-                    SWITCH_ATMOSPHERE_PRESSURE = true;
-                } else {
-                    SWITCH_ATMOSPHERE_PRESSURE = false;
-                }
+                SWITCH_ATMOSPHERE_PRESSURE = checkedSwitch;
                 break;
         }
     }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Погодное приложение</string>
+    <string name="sDegreesCelsius">℃</string>
+    <string name="sEnterCityName">Введите название города</string>
+    <string name="sWithoutPrecipitation">без осадков</string>
+    <string name="sWaitSnow">возможен снег</string>
+    <string name="sTitleCity">Город</string>
+    <string name="sTitleTemperature">Температура</string>
+    <string name="sTitlePrecipitation">Осадки</string>
+    <string name="sBtnBack">назад</string>
+    <string name="sTemperature">Температура</string>
+    <string name="sWind">Скорость ветра</string>
+    <string name="sAtmospherePressure">Атмосфетное давление</string>
+    <string name="sSpeedWind">Скорость ветра</string>
+    <string name="sMetersPerSecond">м/с</string>
+    <string name="sAtmospherePressureMeasure">мм.рт.ст.</string>
+    <string name="colonAndSpace">": "</string>
+    <string name="space">" "</string>
+    <string name="exCBWind">"2 "</string>
+    <string name="exSWAtmospherePressure">"751.3 "</string>
+</resources>
