@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="305dp">
+
+    <EditText
+        android:id="@+id/enterCityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:ems="15"
+        android:gravity="center"
+        android:hint="@string/sEnterCityName"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <CheckBox
+        android:id="@+id/cbTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:checked="false"
+        android:onClick="onClickCheckBox"
+        android:text="@string/sTemperature"
+        tools:ignore="OnClick" />
+
+    <CheckBox
+        android:id="@+id/cbWind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:checked="false"
+        android:onClick="onClickCheckBox"
+        android:text="@string/sWind"
+        tools:ignore="OnClick" />
+
+    <CheckBox
+        android:id="@+id/cbAtmospherePressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:checked="false"
+        android:onClick="onClickSwitch"
+        android:text="@string/sAtmospherePressure"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/btnOk"
+        style="@style/myBtnStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:onClick="btnOkClick"
+        android:text="OK" />
+
+</LinearLayout>

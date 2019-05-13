@@ -7,5 +7,5 @@ public class Parsel implements Serializable {
     public String text;
     public boolean checkBoxTemperature;
     public boolean checkBoxWind;
-    public boolean switchAtmospherePressure;
+    public boolean checkBoxAtmospherePressure;
 }
