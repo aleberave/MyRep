@@ -4,9 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
+
+    <!-- Фрагмент с выбором городов -->
     <fragment
-        android:id="@+id/container_port_1"
-        android:name="geekbrains.ru.weatherapp.MainFragment"
+        android:id="@+id/container1"
+        android:name="geekbrains.ru.weatherapp.CitiesFragment"
         android:layout_width="0px"
         android:layout_height="match_parent"
         android:layout_weight="1" />
@@ -16,6 +18,6 @@
         android:layout_width="0px"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="?android:attr/detailsElementBackground" />
+        android:background="?android:attr/detailsElementBackground"/>
 
 </LinearLayout>

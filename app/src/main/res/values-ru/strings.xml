@@ -19,4 +19,5 @@
     <string name="space">" "</string>
     <string name="exCBWind">"2 "</string>
     <string name="exSWAtmospherePressure">"751.3 "</string>
+    <string name="empty">Пусто</string>
 </resources>

@@ -1,8 +1,7 @@
 package geekbrains.ru.weatherapp;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
@@ -12,19 +11,21 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
 
-        setFragment();
-    }
-
-    private void setFragment() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        SecondFragment secondFragment = (SecondFragment) fragmentManager.findFragmentByTag(SecondFragment.TAG);
-        if (secondFragment == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("", "");
-            secondFragment = SecondFragment.init(bundle);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Если устройство перевернули в альбомную ориентацию, то надо эту activity закрыть
+            finish();
+            return;
         }
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.container2, secondFragment, SecondFragment.TAG);
-        transaction.commitAllowingStateLoss();
+
+        if (savedInstanceState == null) {
+            // Если Activity запускается первый раз (с каждыми новыми данными о погоде первый раз)
+            // то перенаправим параметр фрагменту
+            SecondFragment details = new SecondFragment();
+            details.setArguments(getIntent().getExtras());
+
+            // Добавим фрагмент в Activity
+            getSupportFragmentManager().beginTransaction()
+                    .add(android.R.id.content, details).commitAllowingStateLoss();
+        }
     }
 }
