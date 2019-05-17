@@ -2,7 +2,7 @@
     <string name="app_name">Погодное приложение</string>
     <string name="sDegreesCelsius">℃</string>
     <string name="sEnterCityName">Enter the name of the city</string>
-    <string name="sWithoutPrecipitation">without precipitationв</string>
+    <string name="sWithoutPrecipitation">without precipitation</string>
     <string name="sWaitSnow">wait snow</string>
     <string name="sTitleCity">City</string>
     <string name="sTitleTemperature">Temperature</string>
@@ -19,4 +19,5 @@
     <string name="exCBWind">"2 "</string>
     <string name="exSWAtmospherePressure">"751.3 "</string>
     <string name="empty">Empty</string>
+    <string name="to_third_activity">weather history</string>
 </resources>

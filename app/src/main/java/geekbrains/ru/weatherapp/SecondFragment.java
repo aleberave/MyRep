@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class SecondFragment extends Fragment {
 
     public static final String PARCEL = "parcel";
@@ -21,6 +23,10 @@ public class SecondFragment extends Fragment {
     private TextView tvAtmospherePressure;
     private TextView tvSpeedWind;
     private ImageView ivCityPrecipitation;
+
+    DataClass dataCity;
+    public static ArrayList<String> list;
+
 
     // фабричный метод, создает фрагмент и передает параметр
     public static SecondFragment create(Parsel parcel) {
@@ -85,6 +91,16 @@ public class SecondFragment extends Fragment {
             tvAtmospherePressure.setText(getResources().getString(R.string.colonAndSpace) +
                     getResources().getString(R.string.exSWAtmospherePressure) +
                     getResources().getString(R.string.sAtmospherePressureMeasure));
+        }
+
+        dataCity = new DataClass(ivCityPrecipitation.getDrawable(), parsel.getText()
+                + getResources().getString(R.string.space)
+                + tvCityTemperature.getText() + tvCityPrecipitation.getText(), true);
+        if (list == null) {
+            list = new ArrayList<>(6);
+            list.add(dataCity.cityName);
+        } else {
+            list.add(dataCity.cityName);
         }
     }
 

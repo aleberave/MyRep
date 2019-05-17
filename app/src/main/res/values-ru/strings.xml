@@ -20,4 +20,5 @@
     <string name="exCBWind">"2 "</string>
     <string name="exSWAtmospherePressure">"751.3 "</string>
     <string name="empty">Пусто</string>
+    <string name="to_third_activity">История погоды</string>
 </resources>
