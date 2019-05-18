@@ -1,11 +1,9 @@
 package geekbrains.ru.weatherapp;
 
-import java.util.HashMap;
-
-public class DataClass extends HashMap<String, String> {
+public class DataClass {
     public String cityName;
-    boolean isChecked;
     public int identifier;
+    boolean isChecked;
 
     public DataClass(int identifier, String cityName, boolean isChecked) {
         this.identifier = identifier;

@@ -48,10 +48,10 @@ public class RecyclerActivity extends AppCompatActivity {
     private String getCityName(String[] str) {
         String[] newStr = new String[4];
         System.arraycopy(str, 0, newStr, 0, 4);
-        String neW = "";
+        String newString = "";
         for (int i = 0; i < newStr.length; i++) {
-            neW = neW + newStr[i];
+            newString = newString + newStr[i];
         }
-        return neW;
+        return newString;
     }
 }

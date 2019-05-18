@@ -79,19 +79,22 @@ public class SecondFragment extends Fragment {
 
         if (parsel.checkBoxTemperature) {
             drawableStringID = getTemperature();
-            tvCityTemperature.setText(getResources().getString(R.string.colonAndSpace) +
+            String text = getResources().getString(R.string.colonAndSpace) +
                     temperature + getResources().getString(R.string.space) +
-                    getResources().getString(R.string.sDegreesCelsius));
+                    getResources().getString(R.string.sDegreesCelsius);
+            tvCityTemperature.setText(text);
         }
         if (parsel.checkBoxWind) {
-            tvSpeedWind.setText(getResources().getString(R.string.colonAndSpace) +
+            String text = getResources().getString(R.string.colonAndSpace) +
                     getResources().getString(R.string.exCBWind) +
-                    getResources().getString(R.string.sMetersPerSecond));
+                    getResources().getString(R.string.sMetersPerSecond);
+            tvSpeedWind.setText(text);
         }
         if (parsel.checkBoxAtmospherePressure) {
-            tvAtmospherePressure.setText(getResources().getString(R.string.colonAndSpace) +
+            String text = getResources().getString(R.string.colonAndSpace) +
                     getResources().getString(R.string.exSWAtmospherePressure) +
-                    getResources().getString(R.string.sAtmospherePressureMeasure));
+                    getResources().getString(R.string.sAtmospherePressureMeasure);
+            tvAtmospherePressure.setText(text);
         }
 
         dataCity = new DataClass(ivCityPrecipitation.getId(), parsel.getText()
@@ -122,5 +125,11 @@ public class SecondFragment extends Fragment {
             tvCityPrecipitation.setText(": " + getResources().getString(R.string.sWithoutPrecipitation));
         }
         return adressDrawable;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setRetainInstance(true);
     }
 }
