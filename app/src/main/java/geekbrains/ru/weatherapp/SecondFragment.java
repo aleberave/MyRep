@@ -73,11 +73,12 @@ public class SecondFragment extends Fragment {
 
     private void getCity() {
         Parsel parsel = getParcel();
+        String drawableStringID = "";
 
         tvCityName.setText(getResources().getString(R.string.colonAndSpace) + parsel.getText());
 
         if (parsel.checkBoxTemperature) {
-            getTemperature();
+            drawableStringID = getTemperature();
             tvCityTemperature.setText(getResources().getString(R.string.colonAndSpace) +
                     temperature + getResources().getString(R.string.space) +
                     getResources().getString(R.string.sDegreesCelsius));
@@ -93,9 +94,9 @@ public class SecondFragment extends Fragment {
                     getResources().getString(R.string.sAtmospherePressureMeasure));
         }
 
-        dataCity = new DataClass(ivCityPrecipitation.getDrawable(), parsel.getText()
-                + getResources().getString(R.string.space)
-                + tvCityTemperature.getText() + tvCityPrecipitation.getText(), true);
+        dataCity = new DataClass(ivCityPrecipitation.getId(), parsel.getText()
+                + getResources().getString(R.string.space) + tvCityTemperature.getText()
+                + getResources().getString(R.string.space) + drawableStringID, false);
         if (list == null) {
             list = new ArrayList<>(6);
             list.add(dataCity.cityName);
@@ -104,16 +105,22 @@ public class SecondFragment extends Fragment {
         }
     }
 
-    private void getTemperature() {
+    private String getTemperature() {
         float random = (float) Math.random();
+        String adressDrawable = "";
         if (random < 0.5f) {
             temperature = (int) (((-1) * random) * 30);
-            ivCityPrecipitation.setImageResource(R.drawable.night_snow);
+            adressDrawable = getResources().getString(R.string.sDrawableNightSnow);
+            int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
+            ivCityPrecipitation.setImageResource(drawableResID);
             tvCityPrecipitation.setText(": " + getResources().getString(R.string.sWaitSnow));
         } else {
             temperature = (int) (random * 30);
-            ivCityPrecipitation.setImageResource(R.drawable.sun_cloud);
+            adressDrawable = getResources().getString(R.string.sDrawableSunCloud);
+            int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
+            ivCityPrecipitation.setImageResource(drawableResID);
             tvCityPrecipitation.setText(": " + getResources().getString(R.string.sWithoutPrecipitation));
         }
+        return adressDrawable;
     }
 }

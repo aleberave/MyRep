@@ -20,4 +20,6 @@
     <string name="exSWAtmospherePressure">"751.3 "</string>
     <string name="empty">Empty</string>
     <string name="to_third_activity">weather history</string>
+    <string name="sDrawableNightSnow" translatable="false">"geekbrains.ru.weatherapp:drawable/night_snow"</string>
+    <string name="sDrawableSunCloud" translatable="false">geekbrains.ru.weatherapp:drawable/sun_cloud</string>
 </resources>

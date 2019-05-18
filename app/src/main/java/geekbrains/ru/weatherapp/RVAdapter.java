@@ -33,7 +33,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.RVViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RVViewHolder rvViewHolder, int i) {
         final DataClass item = dataSource.get(i);
-        rvViewHolder.imageView.setImageDrawable(item.getDrawableWheather());
+        rvViewHolder.imageView.setImageResource(item.getIdentifier());
         rvViewHolder.textView.setText(item.getCityName());
         rvViewHolder.checkBox.setChecked(false);
 

@@ -1,10 +1,10 @@
 package geekbrains.ru.weatherapp;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,23 +31,28 @@ public class RecyclerActivity extends AppCompatActivity {
         if (arrayList.size() > 0) {
             for (int i = 0; i < arrayList.size(); i++) {
                 String[] str = arrayList.get(i).split(getResources().getString(R.string.space));
-                getDrawableWeather(str);
-                dataSource.add(0, new DataClass(getDrawableWeather(str), arrayList.get(i), true));
+                int drawableResID = getDrawableWeather(str);
+                String newCityName = getCityName(str);
+                dataSource.add(0, new DataClass(drawableResID, newCityName, false));
                 adapter.notifyDataSetChanged();
             }
         }
     }
 
-    private Drawable getDrawableWeather(String[] str) {
-        Drawable drawable = null;
-        String precipitation = str[4];
+    private int getDrawableWeather(String[] str) {
+        int draw = 0;
+        String drawableResID = str[str.length - 1];
+        draw = getResources().getIdentifier(drawableResID, null, null);
+        return draw;
+    }
 
-        if (precipitation.startsWith("without")) {
-            drawable = getResources().getDrawable(R.drawable.sun_cloud);
-        } else if (precipitation.startsWith("wait")) {
-            drawable = getResources().getDrawable(R.drawable.night_snow);
+    private String getCityName(String[] str){
+        String[] newStr = new String[4];
+        System.arraycopy(str,0, newStr, 0, 4);
+        String neW = "";
+        for (int i = 0; i < newStr.length; i++) {
+            neW = neW + newStr[i];
         }
-
-        return drawable;
+        return neW;
     }
 }
