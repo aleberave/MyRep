@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/toSecondActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/toWeatherActivity"
         android:title="@string/to_third_activity"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/toCoordinatorActivity"
+        android:title="@string/coordinator_activity"
+        app:showAsAction="never" />
 </menu>

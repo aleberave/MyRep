@@ -47,7 +47,7 @@ public class SecondFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_second_activity, container, false);
+        View v = inflater.inflate(R.layout.fragment_second, container, false);
 
         setRetainInstance(true);
         init(v);
@@ -98,11 +98,11 @@ public class SecondFragment extends Fragment {
             tvAtmospherePressure.setText(text);
         }
 
-        String textDataCity = parsel.getText()
+        String textDataCityName = parsel.getText()
                 + getResources().getString(R.string.space) + tvCityTemperature.getText()
                 + getResources().getString(R.string.space) + drawableStringID;
 
-        dataCity = new DataClass(ivCityPrecipitation.getId(), textDataCity, false);
+        dataCity = new DataClass(ivCityPrecipitation.getId(), textDataCityName, false);
         if (list == null) {
             list = new ArrayList<>(6);
             list.add(dataCity.cityName);
@@ -128,7 +128,8 @@ public class SecondFragment extends Fragment {
             adressDrawable = getResources().getString(R.string.sDrawableSunCloud);
             int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
             ivCityPrecipitation.setImageResource(drawableResID);
-            text = getResources().getString(R.string.colonAndSpace) + getResources().getString(R.string.sWithoutPrecipitation);
+            text = getResources().getString(R.string.colonAndSpace)
+                    + getResources().getString(R.string.sWithoutPrecipitation);
             tvCityPrecipitation.setText(text);
         }
         return adressDrawable;
