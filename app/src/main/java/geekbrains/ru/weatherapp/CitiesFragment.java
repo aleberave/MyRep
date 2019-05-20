@@ -69,7 +69,6 @@ public class CitiesFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         setRetainInstance(true);
 
         // Определение, можно ли будет расположить рядом данные о погоде в другом фрагменте

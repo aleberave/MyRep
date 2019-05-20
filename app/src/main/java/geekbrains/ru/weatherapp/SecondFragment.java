@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class SecondFragment extends Fragment {
 
     public static final String PARCEL = "parcel";
@@ -21,6 +23,10 @@ public class SecondFragment extends Fragment {
     private TextView tvAtmospherePressure;
     private TextView tvSpeedWind;
     private ImageView ivCityPrecipitation;
+
+    DataClass dataCity;
+    public static ArrayList<String> list;
+
 
     // фабричный метод, создает фрагмент и передает параметр
     public static SecondFragment create(Parsel parcel) {
@@ -67,37 +73,64 @@ public class SecondFragment extends Fragment {
 
     private void getCity() {
         Parsel parsel = getParcel();
+        String drawableStringID = "";
+        String text;
 
         tvCityName.setText(getResources().getString(R.string.colonAndSpace) + parsel.getText());
 
         if (parsel.checkBoxTemperature) {
-            getTemperature();
-            tvCityTemperature.setText(getResources().getString(R.string.colonAndSpace) +
+            drawableStringID = getTemperature();
+            text = getResources().getString(R.string.colonAndSpace) +
                     temperature + getResources().getString(R.string.space) +
-                    getResources().getString(R.string.sDegreesCelsius));
+                    getResources().getString(R.string.sDegreesCelsius);
+            tvCityTemperature.setText(text);
         }
         if (parsel.checkBoxWind) {
-            tvSpeedWind.setText(getResources().getString(R.string.colonAndSpace) +
+            text = getResources().getString(R.string.colonAndSpace) +
                     getResources().getString(R.string.exCBWind) +
-                    getResources().getString(R.string.sMetersPerSecond));
+                    getResources().getString(R.string.sMetersPerSecond);
+            tvSpeedWind.setText(text);
         }
         if (parsel.checkBoxAtmospherePressure) {
-            tvAtmospherePressure.setText(getResources().getString(R.string.colonAndSpace) +
+            text = getResources().getString(R.string.colonAndSpace) +
                     getResources().getString(R.string.exSWAtmospherePressure) +
-                    getResources().getString(R.string.sAtmospherePressureMeasure));
+                    getResources().getString(R.string.sAtmospherePressureMeasure);
+            tvAtmospherePressure.setText(text);
+        }
+
+        String textDataCity = parsel.getText()
+                + getResources().getString(R.string.space) + tvCityTemperature.getText()
+                + getResources().getString(R.string.space) + drawableStringID;
+
+        dataCity = new DataClass(ivCityPrecipitation.getId(), textDataCity, false);
+        if (list == null) {
+            list = new ArrayList<>(6);
+            list.add(dataCity.cityName);
+        } else {
+            list.add(dataCity.cityName);
         }
     }
 
-    private void getTemperature() {
+    private String getTemperature() {
         float random = (float) Math.random();
+        String adressDrawable;
+        String text;
         if (random < 0.5f) {
             temperature = (int) (((-1) * random) * 30);
-            ivCityPrecipitation.setImageResource(R.drawable.night_snow);
-            tvCityPrecipitation.setText(": " + getResources().getString(R.string.sWaitSnow));
+            adressDrawable = getResources().getString(R.string.sDrawableNightSnow);
+            int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
+            ivCityPrecipitation.setImageResource(drawableResID);
+            text = getResources().getString(R.string.colonAndSpace)
+                    + getResources().getString(R.string.sWaitSnow);
+            tvCityPrecipitation.setText(text);
         } else {
             temperature = (int) (random * 30);
-            ivCityPrecipitation.setImageResource(R.drawable.sun_cloud);
-            tvCityPrecipitation.setText(": " + getResources().getString(R.string.sWithoutPrecipitation));
+            adressDrawable = getResources().getString(R.string.sDrawableSunCloud);
+            int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
+            ivCityPrecipitation.setImageResource(drawableResID);
+            text = getResources().getString(R.string.colonAndSpace) + getResources().getString(R.string.sWithoutPrecipitation);
+            tvCityPrecipitation.setText(text);
         }
+        return adressDrawable;
     }
 }
