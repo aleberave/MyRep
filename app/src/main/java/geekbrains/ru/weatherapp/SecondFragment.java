@@ -74,32 +74,35 @@ public class SecondFragment extends Fragment {
     private void getCity() {
         Parsel parsel = getParcel();
         String drawableStringID = "";
+        String text;
 
         tvCityName.setText(getResources().getString(R.string.colonAndSpace) + parsel.getText());
 
         if (parsel.checkBoxTemperature) {
             drawableStringID = getTemperature();
-            String text = getResources().getString(R.string.colonAndSpace) +
+            text = getResources().getString(R.string.colonAndSpace) +
                     temperature + getResources().getString(R.string.space) +
                     getResources().getString(R.string.sDegreesCelsius);
             tvCityTemperature.setText(text);
         }
         if (parsel.checkBoxWind) {
-            String text = getResources().getString(R.string.colonAndSpace) +
+            text = getResources().getString(R.string.colonAndSpace) +
                     getResources().getString(R.string.exCBWind) +
                     getResources().getString(R.string.sMetersPerSecond);
             tvSpeedWind.setText(text);
         }
         if (parsel.checkBoxAtmospherePressure) {
-            String text = getResources().getString(R.string.colonAndSpace) +
+            text = getResources().getString(R.string.colonAndSpace) +
                     getResources().getString(R.string.exSWAtmospherePressure) +
                     getResources().getString(R.string.sAtmospherePressureMeasure);
             tvAtmospherePressure.setText(text);
         }
 
-        dataCity = new DataClass(ivCityPrecipitation.getId(), parsel.getText()
+        String textDataCity = parsel.getText()
                 + getResources().getString(R.string.space) + tvCityTemperature.getText()
-                + getResources().getString(R.string.space) + drawableStringID, false);
+                + getResources().getString(R.string.space) + drawableStringID;
+
+        dataCity = new DataClass(ivCityPrecipitation.getId(), textDataCity, false);
         if (list == null) {
             list = new ArrayList<>(6);
             list.add(dataCity.cityName);
@@ -110,26 +113,24 @@ public class SecondFragment extends Fragment {
 
     private String getTemperature() {
         float random = (float) Math.random();
-        String adressDrawable = "";
+        String adressDrawable;
+        String text;
         if (random < 0.5f) {
             temperature = (int) (((-1) * random) * 30);
             adressDrawable = getResources().getString(R.string.sDrawableNightSnow);
             int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
             ivCityPrecipitation.setImageResource(drawableResID);
-            tvCityPrecipitation.setText(": " + getResources().getString(R.string.sWaitSnow));
+            text = getResources().getString(R.string.colonAndSpace)
+                    + getResources().getString(R.string.sWaitSnow);
+            tvCityPrecipitation.setText(text);
         } else {
             temperature = (int) (random * 30);
             adressDrawable = getResources().getString(R.string.sDrawableSunCloud);
             int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
             ivCityPrecipitation.setImageResource(drawableResID);
-            tvCityPrecipitation.setText(": " + getResources().getString(R.string.sWithoutPrecipitation));
+            text = getResources().getString(R.string.colonAndSpace) + getResources().getString(R.string.sWithoutPrecipitation);
+            tvCityPrecipitation.setText(text);
         }
         return adressDrawable;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        setRetainInstance(true);
     }
 }
