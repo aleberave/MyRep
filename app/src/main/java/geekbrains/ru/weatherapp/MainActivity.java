@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -21,9 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -34,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private EditText searchEditText;
     private AboutDeveloperFragment aboutDeveloperFragment;
     private CitiesFragment citiesFragment;
+    private Toolbar toolbar;
 //    private Fragment2 fragment2;
 
     @Override
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.m_activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbarM);
+        toolbar = findViewById(R.id.toolbarM);
         searchEditText = findViewById(R.id.searchEditText);
 
         setSupportActionBar(toolbar);
@@ -56,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        drawer.notifySubtreeAccessibilityStateChanged(navigationView,toolbar, ViewGroup.FOCUS_AFTER_DESCENDANTS);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -133,6 +130,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 } else {
                     Toast.makeText(getApplicationContext(), "No data about weather", Toast.LENGTH_SHORT).show();
                 }
+            case R.id.nav_about_developer:
+                return true;
         }
 
         handleMenuItemClick(item);
@@ -183,15 +182,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        int optionId = R.layout.m_content_main;
 
         if (id == R.id.nav_about_developer) {
-            aboutDeveloperFragment = new AboutDeveloperFragment();
-            citiesFragment = (CitiesFragment) getSupportFragmentManager().findFragmentById(R.id.m_container1);
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.remove(citiesFragment);
-            fragmentTransaction.add(R.id.m_container1, aboutDeveloperFragment);
-            fragmentTransaction.addToBackStack("Some_Key");
-            fragmentTransaction.commit();
+            optionId = R.layout.fragment_about_developer;
         } else if (id == R.id.nav_callback) {
 
         } else if (id == R.id.nav_share) {
@@ -199,6 +193,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_send) {
 
         }
+
+        ViewGroup parent = (ViewGroup) findViewById(R.id.m_container1);
+        parent.removeAllViews();
+        View newContent = getLayoutInflater().inflate(optionId, parent, false);
+        parent.addView(newContent);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
