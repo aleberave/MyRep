@@ -184,13 +184,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_about_developer) {
             aboutDeveloperFragment = new AboutDeveloperFragment();
-            citiesFragment = new CitiesFragment();
+            citiesFragment = (CitiesFragment) getSupportFragmentManager().findFragmentById(R.id.m_container1);
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.remove(citiesFragment);
             fragmentTransaction.add(R.id.m_container1, aboutDeveloperFragment);
             fragmentTransaction.addToBackStack("Some_Key");
             fragmentTransaction.commit();
-//            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.m_container1);
         } else if (id == R.id.nav_callback) {
 
         } else if (id == R.id.nav_share) {
