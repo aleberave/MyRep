@@ -34,9 +34,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(MainActivity.this, RecyclerActivity.class);
-        intent.putExtra(THIRD, SecondFragment.list);
-        startActivity(intent);
-        return true;
+
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.toWeatherActivity:
+                Intent intent = new Intent(MainActivity.this, RecyclerActivity.class);
+                intent.putExtra(THIRD, SecondFragment.list);
+                startActivity(intent);
+                return true;
+            case R.id.toCoordinatorActivity:
+                Intent intent1 = new Intent(MainActivity.this, CoordinatorActivity.class);
+                intent1.putExtra(THIRD, SecondFragment.list);
+                startActivity(intent1);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
