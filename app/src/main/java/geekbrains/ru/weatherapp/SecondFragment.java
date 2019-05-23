@@ -25,8 +25,7 @@ public class SecondFragment extends Fragment {
     private ImageView ivCityPrecipitation;
 
     DataClass dataCity;
-    public static ArrayList<String> list;
-
+    public static ArrayList<StringBuilder> list = new ArrayList<>(0);
 
     // фабричный метод, создает фрагмент и передает параметр
     public static SecondFragment create(Parsel parcel) {
@@ -68,43 +67,44 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getCity();
+        getCityInfo();
     }
 
-    private void getCity() {
+    private void getCityInfo() {
         Parsel parsel = getParcel();
-        String drawableStringID = "";
-        String text;
 
-        tvCityName.setText(getResources().getString(R.string.colonAndSpace) + parsel.getText());
+        String drawableStringID = getTemperature();
 
-        if (parsel.checkBoxTemperature) {
-            drawableStringID = getTemperature();
-            text = getResources().getString(R.string.colonAndSpace) +
-                    temperature + getResources().getString(R.string.space) +
-                    getResources().getString(R.string.sDegreesCelsius);
-            tvCityTemperature.setText(text);
-        }
-        if (parsel.checkBoxWind) {
-            text = getResources().getString(R.string.colonAndSpace) +
-                    getResources().getString(R.string.exCBWind) +
-                    getResources().getString(R.string.sMetersPerSecond);
-            tvSpeedWind.setText(text);
-        }
-        if (parsel.checkBoxAtmospherePressure) {
-            text = getResources().getString(R.string.colonAndSpace) +
-                    getResources().getString(R.string.exSWAtmospherePressure) +
-                    getResources().getString(R.string.sAtmospherePressureMeasure);
-            tvAtmospherePressure.setText(text);
-        }
+        StringBuilder cityName = new StringBuilder(getResources().getString(R.string.colonAndSpace)
+                + parsel.getText());
+        tvCityName.setText(cityName);
 
-        String textDataCityName = parsel.getText()
+        StringBuilder textTemperature = new StringBuilder(getResources().getString(R.string.colonAndSpace) +
+                temperature + getResources().getString(R.string.space) +
+                getResources().getString(R.string.sDegreesCelsius));
+        tvCityTemperature.setText(textTemperature);
+
+        StringBuilder textWind = new StringBuilder(getResources().getString(R.string.colonAndSpace) +
+                getResources().getString(R.string.exCBWind) +
+                getResources().getString(R.string.sMetersPerSecond));
+        tvSpeedWind.setText(textWind);
+
+        StringBuilder textAtmospherePressure = new StringBuilder(getResources().getString(R.string.colonAndSpace) +
+                getResources().getString(R.string.exSWAtmospherePressure) +
+                getResources().getString(R.string.sAtmospherePressureMeasure));
+        tvAtmospherePressure.setText(textAtmospherePressure);
+
+        getDataCityList(parsel, drawableStringID);
+    }
+
+    private void getDataCityList(Parsel parsel, String drawableStringID) {
+        StringBuilder textDataCityName = new StringBuilder(parsel.getText()
                 + getResources().getString(R.string.space) + tvCityTemperature.getText()
-                + getResources().getString(R.string.space) + drawableStringID;
+                + getResources().getString(R.string.space) + drawableStringID);
 
         dataCity = new DataClass(ivCityPrecipitation.getId(), textDataCityName, false);
         if (list == null) {
-            list = new ArrayList<>(6);
+            list = new ArrayList<StringBuilder>(6);
             list.add(dataCity.cityName);
         } else {
             list.add(dataCity.cityName);
@@ -113,25 +113,25 @@ public class SecondFragment extends Fragment {
 
     private String getTemperature() {
         float random = (float) Math.random();
-        String adressDrawable;
-        String text;
+        String addressDrawable;
+        StringBuilder textCityPrecipitation;
         if (random < 0.5f) {
             temperature = (int) (((-1) * random) * 30);
-            adressDrawable = getResources().getString(R.string.sDrawableNightSnow);
-            int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
+            addressDrawable = getResources().getString(R.string.sDrawableNightSnow);
+            int drawableResID = getResources().getIdentifier(addressDrawable, null, null);
             ivCityPrecipitation.setImageResource(drawableResID);
-            text = getResources().getString(R.string.colonAndSpace)
-                    + getResources().getString(R.string.sWaitSnow);
-            tvCityPrecipitation.setText(text);
+            textCityPrecipitation = new StringBuilder(getResources().getString(R.string.colonAndSpace)
+                    + getResources().getString(R.string.sWaitSnow));
+            tvCityPrecipitation.setText(textCityPrecipitation);
         } else {
             temperature = (int) (random * 30);
-            adressDrawable = getResources().getString(R.string.sDrawableSunCloud);
-            int drawableResID = getResources().getIdentifier(adressDrawable, null, null);
+            addressDrawable = getResources().getString(R.string.sDrawableSunCloud);
+            int drawableResID = getResources().getIdentifier(addressDrawable, null, null);
             ivCityPrecipitation.setImageResource(drawableResID);
-            text = getResources().getString(R.string.colonAndSpace)
-                    + getResources().getString(R.string.sWithoutPrecipitation);
-            tvCityPrecipitation.setText(text);
+            textCityPrecipitation = new StringBuilder(getResources().getString(R.string.colonAndSpace)
+                    + getResources().getString(R.string.sWithoutPrecipitation));
+            tvCityPrecipitation.setText(textCityPrecipitation);
         }
-        return adressDrawable;
+        return addressDrawable;
     }
 }

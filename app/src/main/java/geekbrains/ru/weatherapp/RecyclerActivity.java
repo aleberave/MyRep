@@ -13,17 +13,20 @@ public class RecyclerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler2);
+        setContentView(R.layout.activity_recycler);
 
+        getRecyclerFragment();
+    }
+
+    private void getRecyclerFragment() {
         ArrayList<String> arrayList = getIntent().getStringArrayListExtra(MainActivity.THIRD);
         final List<DataClass> dataSource = new ArrayList<>();
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewCity);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false);
 
-
-        RVAdapter adapter = new RVAdapter(dataSource);
+        RVAdapter adapter = new RVAdapter(dataSource, this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
@@ -31,7 +34,7 @@ public class RecyclerActivity extends AppCompatActivity {
             for (int i = 0; i < arrayList.size(); i++) {
                 String[] str = arrayList.get(i).split(getResources().getString(R.string.space));
                 int drawableResID = getDrawableWeather(str);
-                String newCityName = getCityName(str);
+                StringBuilder newCityName = getCityName(str);
                 dataSource.add(0, new DataClass(drawableResID, newCityName, false));
                 adapter.notifyDataSetChanged();
             }
@@ -39,19 +42,15 @@ public class RecyclerActivity extends AppCompatActivity {
     }
 
     private int getDrawableWeather(String[] str) {
-        int draw = 0;
         String drawableResID = str[str.length - 1];
-        draw = getResources().getIdentifier(drawableResID, null, null);
-        return draw;
+        return getResources().getIdentifier(drawableResID, null, null);
     }
 
-    private String getCityName(String[] str) {
+    private StringBuilder getCityName(String[] str) {
         String[] newStr = new String[4];
         System.arraycopy(str, 0, newStr, 0, 4);
-        String newString = "";
-        for (int i = 0; i < newStr.length; i++) {
-            newString = newString + newStr[i];
-        }
+        StringBuilder newString = new StringBuilder();
+        for (String s : newStr) newString.append(s);
         return newString;
     }
 }

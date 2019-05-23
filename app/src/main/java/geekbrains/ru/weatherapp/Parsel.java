@@ -6,9 +6,6 @@ public class Parsel implements Serializable {
 
     private int cityIndex;
     public String text;
-    public boolean checkBoxTemperature = true;
-    public boolean checkBoxWind = true;
-    public boolean checkBoxAtmospherePressure = true;
 
     public Parsel(int index, String text) {
         this.cityIndex = index;
