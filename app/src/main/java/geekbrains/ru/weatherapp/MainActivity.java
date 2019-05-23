@@ -20,6 +20,7 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        drawer.notifySubtreeAccessibilityStateChanged(navigationView,toolbar, ViewGroup.FOCUS_AFTER_DESCENDANTS);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
