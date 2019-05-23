@@ -12,9 +12,9 @@
 
         <fragment
             android:id="@+id/m_container1"
-            android:name="geekbrains.ru.weatherapp.CitiesFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:name="geekbrains.ru.weatherapp.CitiesFragment2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </FrameLayout>
 
     <FrameLayout

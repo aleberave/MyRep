@@ -136,6 +136,9 @@ public class CoordinatorActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 break;
             }
+            case R.id.searchEditText:
+                Toast.makeText(getApplicationContext(), "search", Toast.LENGTH_SHORT).show();
+                break;
             default: {
                 Toast.makeText(getApplicationContext(), "Action not found", Toast.LENGTH_SHORT)
                         .show();

@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 // Фрагмент выбора города из списка
 public class CitiesFragment2 extends Fragment {
@@ -20,7 +21,8 @@ public class CitiesFragment2 extends Fragment {
     private boolean isExistDataOfCity;  // Можно ли расположить рядом фрагмент с данными о погоде
     private static final String CURRENT_CITY = "CurrentCity";
     private Parsel currentParcel;
-
+    private RecyclerView recyclerViewCity;
+    private CityAdapter cityAdapter;
 
     // При создании фрагмента, укажем его макет
     @Override
@@ -35,10 +37,10 @@ public class CitiesFragment2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String[] data = {"Москва", "Самара", "Саратов"};
-        RecyclerView recyclerViewCity = view.findViewById(R.id.recViewCityM);
+        recyclerViewCity = view.findViewById(R.id.recViewCityM);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
-        CityAdapter cityAdapter = new CityAdapter(data, getActivity());
+        cityAdapter = new CityAdapter(data, getActivity());
 
         recyclerViewCity.setLayoutManager(layoutManager);
         recyclerViewCity.setAdapter(cityAdapter);
@@ -49,7 +51,8 @@ public class CitiesFragment2 extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setRetainInstance(true);
+//        setRetainInstance(true);
+        Toast.makeText(getContext(), "onActivityCreated", Toast.LENGTH_SHORT).show();
 
         // Определение, можно ли будет расположить рядом данные о погоде в другом фрагменте
         isExistDataOfCity = (getResources().getConfiguration().orientation
@@ -85,6 +88,9 @@ public class CitiesFragment2 extends Fragment {
         if (isExistDataOfCity) {
             // Выделим текущий элемент списка
 //            listView.setItemChecked(currentParcel.getCityIndex(), true);
+            Toast.makeText(getContext(), "cityIndex before" + currentParcel.getCityIndex(), Toast.LENGTH_SHORT).show();
+            currentParcel.setCityIndex(cityAdapter.getPosition());
+            Toast.makeText(getContext(), "cityIndex after" + currentParcel.getCityIndex(), Toast.LENGTH_SHORT).show();
 
             // Проверим, что фрагмент с данными о погоде существует в activity
             SecondFragment secondFragment = (SecondFragment)

@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -29,8 +28,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public static final String THIRD = "THIRD";
     private EditText searchEditText;
-    private AboutDeveloperFragment aboutDeveloperFragment;
-    private CitiesFragment citiesFragment;
     private Toolbar toolbar;
 //    private Fragment2 fragment2;
 
@@ -130,8 +127,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 } else {
                     Toast.makeText(getApplicationContext(), "No data about weather", Toast.LENGTH_SHORT).show();
                 }
-            case R.id.nav_about_developer:
-                return true;
         }
 
         handleMenuItemClick(item);
@@ -194,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
-        ViewGroup parent = (ViewGroup) findViewById(R.id.m_container1);
+        ViewGroup parent = findViewById(R.id.m_container1);
         parent.removeAllViews();
         View newContent = getLayoutInflater().inflate(optionId, parent, false);
         parent.addView(newContent);

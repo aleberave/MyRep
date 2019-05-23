@@ -14,6 +14,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
 
     private String[] data;
     private Activity activity;
+    public int position;
 
     CityAdapter(String[] data, FragmentActivity activity) {
         this.activity = activity;
@@ -21,8 +22,11 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
             this.data = data;
         } else {
             this.data = new String[1];
-            data[0] = "wow";
         }
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @NonNull
@@ -35,14 +39,15 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CityViewHolder cityViewHolder, final int i) {
-        cityViewHolder.textView.setText(data[i]);
+        String text = "Элемент номер " + data[i];
+        cityViewHolder.textView.setText(text);
+//        cityViewHolder.textView.setText(data[i]);
 
-        cityViewHolder.textView.setOnLongClickListener(new View.OnLongClickListener() {
+        final int position = i;
+        cityViewHolder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                //в какую то переменную запоминаете позицию...
-                Toast.makeText(v.getContext(), i, Toast.LENGTH_SHORT).show();
-                return false;
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "position" + i, Toast.LENGTH_SHORT).show();
             }
         });
 

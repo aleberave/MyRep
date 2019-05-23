@@ -19,4 +19,8 @@ public class Parsel implements Serializable {
     public int getCityIndex() {
         return cityIndex;
     }
+
+    public void setCityIndex(int position) {
+        this.cityIndex = position;
+    }
 }
