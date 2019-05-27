@@ -9,7 +9,7 @@
     </style>
 
     <style name="myBtnStyle">
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">15dp</item>
         <item name="android:textColor">#881177</item>
         <item name="android:background">#997799</item>
     </style>

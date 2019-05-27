@@ -4,13 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <item
-        android:id="@+id/toWeatherActivity"
-        android:title="@string/to_third_activity"
-        app:showAsAction="never" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/toRecyclerActivity"
+            android:title="@string/recycler_activity"
+            app:showAsAction="never" />
 
-    <item
-        android:id="@+id/toCoordinatorActivity"
-        android:title="@string/coordinator_activity"
-        app:showAsAction="never" />
+        <item
+            android:id="@+id/toCoordinatorActivity"
+            android:title="@string/coordinator_activity"
+            app:showAsAction="never" />
+    </group>
+
+    <item android:title="Action">
+        <menu>
+            <item
+                android:id="@+id/menu_search"
+                android:icon="@android:drawable/ic_menu_search"
+                android:orderInCategory="11"
+                android:title="@string/search"
+                app:showAsAction="ifRoom" />
+        </menu>
+    </item>
 </menu>
