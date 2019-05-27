@@ -32,7 +32,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
         if (arrayList.size() > 0) {
             for (int i = 0; i < arrayList.size(); i++) {
-                String[] str = arrayList.get(i).split(getResources().getString(R.string.space));
+                String[] str = arrayList.get(i).split(getResources().getString(R.string.sSpace));
                 int drawableResID = getDrawableWeather(str);
                 StringBuilder newCityName = getCityName(str);
                 dataSource.add(0, new DataClass(drawableResID, newCityName, false));

@@ -16,12 +16,11 @@ import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.RVViewHolder> {
     private final Activity activity;
-    private Context context;
     private List<DataClass> dataSource;
     private boolean isCBPosition;
     private int cbPosition;
 
-    public RVAdapter(List<DataClass> dataSource, Activity activity) {
+    RVAdapter(List<DataClass> dataSource, Activity activity) {
         this.activity = activity;
         this.dataSource = dataSource;
     }
@@ -29,7 +28,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.RVViewHolder> {
     @NonNull
     @Override
     public RVViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        this.context = viewGroup.getContext();
+        Context context = viewGroup.getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.element_layout, viewGroup,
                 false);
         return new RVViewHolder(view);

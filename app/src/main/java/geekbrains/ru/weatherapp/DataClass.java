@@ -1,21 +1,21 @@
 package geekbrains.ru.weatherapp;
 
-public class DataClass {
-    public StringBuilder cityName;
-    public int identifier;
-    boolean isChecked;
+class DataClass {
+    private StringBuilder cityName;
+    private int identifier;
+    private boolean isChecked;
 
-    public DataClass(int identifier, StringBuilder cityName, boolean isChecked) {
+    DataClass(int identifier, StringBuilder cityName, boolean isChecked) {
         this.identifier = identifier;
         this.cityName = cityName;
         this.isChecked = isChecked;
     }
 
-    public StringBuilder getCityName() {
+    StringBuilder getCityName() {
         return cityName;
     }
 
-    public int getIdentifier() {
+    int getIdentifier() {
         return identifier;
     }
 }
