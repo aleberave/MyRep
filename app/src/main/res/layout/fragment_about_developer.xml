@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/myStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="305dp">
 
     <TextView
         android:id="@+id/tvAboutDeveloper"
+        style="@style/myStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:layout_marginTop="50dp"
-        android:text="Я учусь в GB."/>
+        android:layout_weight="1"
+        android:text="@string/studentGBU"
+        android:textAlignment="center" />
 
-        <ImageView
-            android:id="@+id/ivAboutDeveloper"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:src="@drawable/leaf_leaves" />
-    <Button
-        android:id="@+id/btnBackToCityList"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/ivAboutDeveloper"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        style="@style/myBtnStyle"
-        android:text="@string/sBackToCityList"/>
+        android:layout_weight="1"
+        android:src="@drawable/leaf_leaves"
+        android:contentDescription="@string/todo" />
 
 </LinearLayout>

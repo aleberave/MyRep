@@ -28,15 +28,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public static final String THIRD = "THIRD";
     private EditText searchEditText;
-    private Toolbar toolbar;
-//    private Fragment2 fragment2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.m_activity_main);
 
-        toolbar = findViewById(R.id.toolbarM);
+        Toolbar toolbar = findViewById(R.id.toolbarM);
         searchEditText = findViewById(R.id.searchEditText);
 
         setSupportActionBar(toolbar);
@@ -76,6 +74,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+        int countOfFragmentInManager = getSupportFragmentManager().getBackStackEntryCount();
+        if (countOfFragmentInManager > 0) {
+            getSupportFragmentManager().popBackStack("Some_Key", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -84,10 +86,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.app_name));
         } else {
             super.onBackPressed();
-        }
-        int countOfFragmentInManager = getSupportFragmentManager().getBackStackEntryCount();
-        if (countOfFragmentInManager > 0) {
-            getSupportFragmentManager().popBackStack("Some_Key", FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
     }
 
@@ -163,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Toast.makeText(getApplicationContext(), s.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
-//                searchEditText.setVisibility(View.INVISIBLE);
             }
             default: {
                 Toast.makeText(getApplicationContext(), "Action not found", Toast.LENGTH_SHORT)
@@ -172,7 +169,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -181,12 +177,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_about_developer) {
             optionId = R.layout.fragment_about_developer;
+            findViewById(R.id.m_container_port_2).setVisibility(View.GONE);
         } else if (id == R.id.nav_callback) {
-
+            Toast.makeText(getApplicationContext(), "callback", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
-
+            Toast.makeText(getApplicationContext(), "share", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_send) {
-
+            Toast.makeText(getApplicationContext(), "send", Toast.LENGTH_SHORT).show();
         }
 
         ViewGroup parent = findViewById(R.id.m_container1);

@@ -2,25 +2,21 @@ package geekbrains.ru.weatherapp;
 
 import java.io.Serializable;
 
-public class Parsel implements Serializable {
+class Parsel implements Serializable {
 
     private int cityIndex;
-    public String text;
+    private String textCityName;
 
-    public Parsel(int index, String text) {
+    Parsel(int index, String textCityName) {
         this.cityIndex = index;
-        this.text = text;
+        this.textCityName = textCityName;
     }
 
-    public String getText() {
-        return text;
+    String getTextCityName() {
+        return textCityName;
     }
 
-    public int getCityIndex() {
+    int getCityIndex() {
         return cityIndex;
-    }
-
-    public void setCityIndex(int position) {
-        this.cityIndex = position;
     }
 }

@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Погодное приложение</string>
     <string name="sDegreesCelsius">℃</string>
+    <string name="sProcent" translatable="false">%</string>
     <string name="sEnterCityName">Enter the name of the city</string>
     <string name="sWithoutPrecipitation">without precipitation</string>
     <string name="sWaitSnow">wait snow</string>
     <string name="sTitleCity">City</string>
     <string name="sTitleTemperature">Temperature</string>
     <string name="sTitlePrecipitation">Precipitation</string>
+    <string name="sTitleHumidity">Humidity</string>
     <string name="sBtnBack">Back</string>
     <string name="sTemperature">Temperature</string>
     <string name="sWind">Wind speed</string>
@@ -14,7 +16,7 @@
     <string name="sSpeedWind">Speed wind</string>
     <string name="sMetersPerSecond">m/s</string>
     <string name="sAtmospherePressureMeasure">mmHg.</string>
-    <string name="colonAndSpace">": "</string>
+    <string name="sColonAndSpace">": "</string>
     <string name="space">" "</string>
     <string name="exCBWind">"2 "</string>
     <string name="exSWAtmospherePressure">"751.3 "</string>
@@ -40,4 +42,9 @@
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="sBackToCityList" translatable="false">Back to CityList</string>
+    <string name="communicate" translatable="false">Communicate</string>
+    <string name="action" translatable="false">Action</string>
+
+    <string name="studentGBU">Student GBU</string>
+    <string name="todo">TODO</string>
 </resources>
