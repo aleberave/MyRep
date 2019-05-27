@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Погодное приложение</string>
     <string name="sDegreesCelsius">℃</string>
+    <string name="sProcent">%</string>
     <string name="sEnterCityName">Введите название города</string>
     <string name="sWithoutPrecipitation">без осадков</string>
     <string name="sWaitSnow">возможен снег</string>
@@ -18,12 +19,15 @@
     <string name="sMetersPerSecond">м/с</string>
     <string name="sAtmospherePressureMeasure">мм.рт.ст.</string>
     <string name="sColonAndSpace">": "</string>
-    <string name="space">" "</string>
-    <string name="exCBWind">"2 "</string>
-    <string name="exSWAtmospherePressure">"751.3 "</string>
-    <string name="empty">Пусто</string>
-    <string name="remove">удалить</string>
-    <string name="clear">очистить</string>
-    <string name="studentGBU">Я учусь в GB.</string>
-    <string name="todo">TODO</string>
+    <string name="sSpace">" "</string>
+    <string name="sExCBWind">"2 "</string>
+    <string name="sExSWAtmospherePressure">"751.3 "</string>
+    <string name="sNoData">Нет данных</string>
+
+    <string name="sEmpty">Пусто</string>
+    <string name="sRemove">удалить</string>
+    <string name="sClear">очистить</string>
+    <string name="sStudentGBU">Я учусь в GB.</string>
+    <string name="sTodo">TODO</string>
+
 </resources>

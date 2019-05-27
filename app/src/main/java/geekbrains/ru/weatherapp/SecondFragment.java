@@ -87,37 +87,46 @@ public class SecondFragment extends Fragment {
     private void getCityInfo() {
         Parsel parsel = getParcel();
 
-        String drawableStringID = getTemperature();
+        if(parsel != null){
+            String drawableStringID = getTemperature();
 
-        StringBuilder cityName = new StringBuilder();
-        cityName.append(getResources().getString(R.string.sColonAndSpace))
-                .append(parsel.getTextCityName());
-        tvCityName.setText(cityName);
+            StringBuilder cityName = new StringBuilder();
+            cityName.append(getResources().getString(R.string.sColonAndSpace))
+                    .append(parsel.getTextCityName());
+            tvCityName.setText(cityName);
 
 //        StringBuilder textTemperature = new StringBuilder(getResources().getString(R.string.colonAndSpace) +
 //                temperature + getResources().getString(R.string.space) +
 //                getResources().getString(R.string.sDegreesCelsius));
 //        tvCityTemperature.setText(textTemperature);
 
-        StringBuilder textWind = new StringBuilder();
-        textWind.append(getResources().getString(R.string.sColonAndSpace))
-                .append(getResources().getString(R.string.exCBWind))
-                .append(getResources().getString(R.string.sMetersPerSecond));
-        tvSpeedWind.setText(textWind);
+            StringBuilder textWind = new StringBuilder();
+            textWind.append(getResources().getString(R.string.sColonAndSpace))
+                    .append(getResources().getString(R.string.sExCBWind))
+                    .append(getResources().getString(R.string.sMetersPerSecond));
+            tvSpeedWind.setText(textWind);
 
-        StringBuilder textAtmospherePressure = new StringBuilder();
-        textAtmospherePressure.append(getResources().getString(R.string.sColonAndSpace))
-                .append(getResources().getString(R.string.exSWAtmospherePressure))
-                .append(getResources().getString(R.string.sAtmospherePressureMeasure));
-        tvAtmospherePressure.setText(textAtmospherePressure);
+            StringBuilder textAtmospherePressure = new StringBuilder();
+            textAtmospherePressure.append(getResources().getString(R.string.sColonAndSpace))
+                    .append(getResources().getString(R.string.sExSWAtmospherePressure))
+                    .append(getResources().getString(R.string.sAtmospherePressureMeasure));
+            tvAtmospherePressure.setText(textAtmospherePressure);
 
-        getDataCityList(parsel, drawableStringID);
+            getDataCityList(parsel, drawableStringID);
+        } else {
+            tvCityName.setText(getString(R.string.sNoData));
+            tvCityTemperature.setText(getString(R.string.sNoData));
+            tvCityHumidity.setText(getString(R.string.sNoData));
+            tvCityPrecipitation.setText(getString(R.string.sNoData));
+            tvAtmospherePressure.setText(getString(R.string.sNoData));
+            tvSpeedWind.setText(getString(R.string.sNoData));
+        }
     }
 
     private void getDataCityList(Parsel parsel, String drawableStringID) {
         StringBuilder textDataCityName = new StringBuilder();
-        textDataCityName.append(parsel.getTextCityName()).append(getResources().getString(R.string.space))
-                .append(tvCityTemperature.getText()).append(getResources().getString(R.string.space))
+        textDataCityName.append(parsel.getTextCityName()).append(getResources().getString(R.string.sSpace))
+                .append(tvCityTemperature.getText()).append(getResources().getString(R.string.sSpace))
                 .append(drawableStringID);
 
         dataCity = new DataClass(ivCityPrecipitation.getId(), textDataCityName, false);

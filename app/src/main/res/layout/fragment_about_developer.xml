@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_weight="1"
-        android:text="@string/studentGBU"
+        android:text="@string/sStudentGBU"
         android:textAlignment="center" />
 
     <ImageView
@@ -25,6 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:src="@drawable/leaf_leaves"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="@string/sTodo" />
 
 </LinearLayout>
