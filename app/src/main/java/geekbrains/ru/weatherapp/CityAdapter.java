@@ -104,9 +104,9 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
         } else {
             // Если нельзя вывести данные о погоде рядом, откроем вторую activity
             Intent intent = new Intent();
-            intent.setClass(Objects.requireNonNull(citiesF.getActivity()), SecondActivity2.class);
+            intent.setClass(Objects.requireNonNull(citiesF.getActivity()), SecondActivity.class);
             // и передадим туда параметры
-            intent.putExtra(SecondFragment2.PARCEL, currentParcel);
+            intent.putExtra(SecondFragment.PARCEL, currentParcel);
             citiesF.startActivity(intent);
         }
     }

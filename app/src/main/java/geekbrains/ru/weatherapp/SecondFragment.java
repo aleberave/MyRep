@@ -217,7 +217,6 @@ public class SecondFragment extends Fragment {
         tvCityTemperature.setText(stringBuilder);
         tvCityTemperature.setVisibility(View.VISIBLE);
         sCityTemperature = (String) tvCityTemperature.getText();
-        Toast.makeText(getContext(), "tvTemperature" + sCityTemperature + "Wow", Toast.LENGTH_SHORT).show();
     }
 
     @Override

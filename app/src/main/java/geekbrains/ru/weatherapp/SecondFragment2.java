@@ -138,7 +138,6 @@ public class SecondFragment2 extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             loader.setVisibility(View.VISIBLE);
-
         }
 
         protected String doInBackground(String... args) {
