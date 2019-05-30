@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class CompoundView extends RelativeLayout {
 
-    TextView tvTemperatureCompoundView;
+    TextView tvCompoundView;
 
     public CompoundView(Context context) {
         super(context);
@@ -38,7 +38,7 @@ public class CompoundView extends RelativeLayout {
     }
 
     private void initViews() {
-        tvTemperatureCompoundView = this.findViewById(R.id.tvCompoundView);
+        tvCompoundView = this.findViewById(R.id.tvCompoundView);
     }
 
 }
