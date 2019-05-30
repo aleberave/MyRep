@@ -193,12 +193,14 @@ public class SecondFragment2 extends Fragment {
                 UpdatedField.setText(df.format(new Date(json.getLong
                         (getResources().getString(R.string.dt)) * 1000)));
 
-                weatherIcon.setText(Html.fromHtml(Function.setWeatherIcon(details
+                StringBuffer stbWeatherIcon = new StringBuffer();
+                stbWeatherIcon.append(Html.fromHtml(Function.setWeatherIcon(details
                                 .getInt(getResources().getString(R.string.is)),
                         json.getJSONObject(getResources().getString(R.string.sys))
                                 .getLong(getResources().getString(R.string.sunrise)) * 1000,
                         json.getJSONObject(getResources().getString(R.string.sys))
                                 .getLong(getResources().getString(R.string.sunset)) * 1000)));
+                weatherIcon.setText(stbWeatherIcon);
 
                 loader.setVisibility(View.GONE);
             } catch (JSONException e) {
