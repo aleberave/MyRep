@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="cities">
-        <item>Москва</item>
-        <item>Санкт-Петербург</item>
-        <item>Екатеринбург</item>
-        <item>Новосибирск</item>
-        <item>Самара</item>
-        <item>Хабаровск</item>
-        <item>Владивосток</item>
+        <item>Moscow, RU</item>
+        <item>Saint Petersburg, RU</item>
+        <item>Yekaterinburg, RU</item>
+        <item>Novosibirsk, RU</item>
+        <item>Samara, RU</item>
+        <item>Khabarovsk, RU</item>
+        <item>Vladivostok, RU</item>
     </string-array>
 </resources>

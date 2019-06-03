@@ -14,6 +14,13 @@
             android:id="@+id/toCoordinatorActivity"
             android:title="@string/coordinator_activity"
             app:showAsAction="never" />
+
+        <item
+            android:id="@+id/toSecondActivity2"
+            android:title="@string/second_activity_2"
+            app:showAsAction="never" />
+
+
     </group>
 
     <item android:title="@string/action">

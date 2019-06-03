@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -32,6 +33,8 @@ public class SecondFragment extends Fragment {
     private TextView tvSpeedWind;
     private ImageView ivCityPrecipitation;
 
+    String sCityTemperature;
+    private CompoundView compoundViewT;
     private SensorManager sensorManager;
     private Sensor sensorTemperature;
     private Sensor sensorHumidity;
@@ -68,7 +71,7 @@ public class SecondFragment extends Fragment {
     private void init(View view) {
         tvCityName = view.findViewById(R.id.tvCityName);
         CompoundView compoundViewH = view.findViewById(R.id.compoundViewH);
-        CompoundView compoundViewT = view.findViewById(R.id.compoundViewT);
+        compoundViewT = view.findViewById(R.id.compoundViewT);
         tvCityTemperature = compoundViewT.findViewById(R.id.tvCompoundView);
         tvCityHumidity = compoundViewH.findViewById(R.id.tvCompoundView);
         tvCityPrecipitation = view.findViewById(R.id.tvCityPrecipitation);
@@ -87,7 +90,7 @@ public class SecondFragment extends Fragment {
     private void getCityInfo() {
         Parsel parsel = getParcel();
 
-        if(parsel != null){
+        if (parsel != null) {
             String drawableStringID = getTemperature();
 
             StringBuilder cityName = new StringBuilder();
@@ -203,6 +206,7 @@ public class SecondFragment extends Fragment {
                 .append(event.values[0]).append(getResources().getString(R.string.sProcent));
         tvCityHumidity.setText(stringBuilder);
         tvCityHumidity.setVisibility(View.VISIBLE);
+        String sCityHumidity = (String) tvCityHumidity.getText();
     }
 
     private void showTemperatureSensor(SensorEvent event) {
@@ -212,6 +216,7 @@ public class SecondFragment extends Fragment {
                 .getString(R.string.sDegreesCelsius));
         tvCityTemperature.setText(stringBuilder);
         tvCityTemperature.setVisibility(View.VISIBLE);
+        sCityTemperature = (String) tvCityTemperature.getText();
     }
 
     @Override

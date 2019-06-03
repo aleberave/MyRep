@@ -87,16 +87,16 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
 
         if (isExistDataOfCity) {
             // Проверим, что фрагмент с данными о погоде существует в activity
-            SecondFragment secondFragment = (SecondFragment) Objects.requireNonNull(citiesF.getFragmentManager()).findFragmentById(R.id.m_container_port_2);
+            SecondFragment2 secondFragment2 = (SecondFragment2) Objects.requireNonNull(citiesF.getFragmentManager()).findFragmentById(R.id.m_container_port_2);
 
             // Если есть необходимость, то выведем данные о погоде
-            if (secondFragment == null || secondFragment.getParcel().getCityIndex()
+            if (secondFragment2 == null || secondFragment2.getParcel().getCityIndex()
                     != currentParcel.getCityIndex()) {
                 // Создаем новый фрагмент с текущей позицией для вывода данных о погоде
-                secondFragment = SecondFragment.create(currentParcel);
+                secondFragment2 = SecondFragment2.create(currentParcel);
                 // Выполняем транзакцию по замене фрагмента
                 FragmentTransaction ft = (Objects.requireNonNull(citiesF.getActivity())).getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.m_container_port_2, secondFragment);  // замена фрагмента
+                ft.replace(R.id.m_container_port_2, secondFragment2);  // замена фрагмента
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.addToBackStack("Some_Key");
                 ft.commit();

@@ -91,8 +91,8 @@ public class CoordinatorActivity extends AppCompatActivity {
     }
 
     private StringBuilder getCityName(String[] str) {
-        String[] newStr = new String[4];
-        System.arraycopy(str, 0, newStr, 0, 4);
+        String[] newStr = new String[3];
+        System.arraycopy(str, 0, newStr, 0, 3);
         StringBuilder newString = new StringBuilder();
         for (String s : newStr) newString.append(s);
         return newString;

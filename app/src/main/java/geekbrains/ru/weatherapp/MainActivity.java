@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return true;
                 } else {
                     Toast.makeText(getApplicationContext(), "No data about weather", Toast.LENGTH_SHORT).show();
+                    return true;
                 }
             case R.id.toCoordinatorActivity:
                 if (SecondFragment.list.size() > 0) {
@@ -124,7 +125,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return true;
                 } else {
                     Toast.makeText(getApplicationContext(), "No data about weather", Toast.LENGTH_SHORT).show();
+                    return true;
                 }
+            case R.id.toSecondActivity2:
+                return true;
         }
 
         handleMenuItemClick(item);
@@ -178,6 +182,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_about_developer) {
             optionId = R.layout.fragment_about_developer;
             findViewById(R.id.m_container_port_2).setVisibility(View.GONE);
+
+            ViewGroup parent = findViewById(R.id.m_container1);
+            parent.removeAllViews();
+            View newContent = getLayoutInflater().inflate(optionId, parent, false);
+            parent.addView(newContent);
         } else if (id == R.id.nav_callback) {
             Toast.makeText(getApplicationContext(), "callback", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
@@ -185,11 +194,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_send) {
             Toast.makeText(getApplicationContext(), "send", Toast.LENGTH_SHORT).show();
         }
-
-        ViewGroup parent = findViewById(R.id.m_container1);
-        parent.removeAllViews();
-        View newContent = getLayoutInflater().inflate(optionId, parent, false);
-        parent.addView(newContent);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
