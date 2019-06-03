@@ -87,4 +87,5 @@
     <string name="sEnterYourMessage">Enter your message</string>
     <string name="sEnterYourName">Enter your name</string>
     <string name="sSend">send</string>
+    <string name="sGet">get</string>
 </resources>
