@@ -10,20 +10,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 
-public class Function {
+class Function {
 
     //use https://androstock.com/tutorials/create-a-weather-app-on-android-android-studio.html
     // Project Created by Ferdousur Rahman Shajib
     // www.androstock.com
 
-    public static boolean isNetworkAvailable(Context context)
-    {
+    static boolean isNetworkAvailable(Context context){
         return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo() != null;
     }
 
 
 
-    public static String excuteGet(String targetURL)
+    static String excuteGet(String targetURL)
     {
         URL url;
         HttpURLConnection connection = null;
@@ -45,7 +44,7 @@ public class Function {
                 is = connection.getInputStream();
             BufferedReader rd = new BufferedReader(new InputStreamReader(is));
             String line;
-            StringBuffer response = new StringBuffer();
+            StringBuilder response = new StringBuilder();
             while((line = rd.readLine()) != null) {
                 response.append(line);
                 response.append('\r');
@@ -62,7 +61,7 @@ public class Function {
     }
 
 
-    public static String setWeatherIcon(int actualId, long sunrise, long sunset){
+    static String setWeatherIcon(int actualId, long sunrise, long sunset){
         int id = actualId / 100;
         String icon = "";
         if(actualId == 800){

@@ -30,4 +30,6 @@
     <string name="sStudentGBU">Я учусь в GB.</string>
     <string name="sTodo">TODO</string>
 
+    <string name="sEnterYourMessage">Ввведите сообщение</string>
+    <string name="sSend">send</string>
 </resources>
