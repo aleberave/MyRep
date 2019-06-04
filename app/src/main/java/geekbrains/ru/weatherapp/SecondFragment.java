@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -34,7 +33,6 @@ public class SecondFragment extends Fragment {
     private ImageView ivCityPrecipitation;
 
     String sCityTemperature;
-    private CompoundView compoundViewT;
     private SensorManager sensorManager;
     private Sensor sensorTemperature;
     private Sensor sensorHumidity;
@@ -56,12 +54,14 @@ public class SecondFragment extends Fragment {
 
     // получить индекс из списка (фактически из параметра)
     public Parsel getParcel() {
+        assert getArguments() != null;
         return (Parsel) getArguments().getSerializable(PARCEL);
     }
 
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_second, container, false);
         setRetainInstance(true);
         init(v);
@@ -71,7 +71,7 @@ public class SecondFragment extends Fragment {
     private void init(View view) {
         tvCityName = view.findViewById(R.id.tvCityName);
         CompoundView compoundViewH = view.findViewById(R.id.compoundViewH);
-        compoundViewT = view.findViewById(R.id.compoundViewT);
+        CompoundView compoundViewT = view.findViewById(R.id.compoundViewT);
         tvCityTemperature = compoundViewT.findViewById(R.id.tvCompoundView);
         tvCityHumidity = compoundViewH.findViewById(R.id.tvCompoundView);
         tvCityPrecipitation = view.findViewById(R.id.tvCityPrecipitation);

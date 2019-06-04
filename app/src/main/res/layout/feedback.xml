@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:visibility="visible">
+
+    <EditText
+        android:id="@+id/etEnterYourName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/sEnterYourName"
+        android:autofillHints="@string/sEnterYourName"
+        tools:targetApi="o"
+        tools:ignore="LabelFor,TextFields" />
+    <EditText
+        android:id="@+id/etEnterYourMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/sEnterYourMessage"
+        android:autofillHints="@string/sEnterYourMessage"
+        tools:targetApi="o"
+        android:inputType="" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/sSend"/>
+
+    <Button
+        android:id="@+id/btnGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/sGet"/>
+
+    <EditText
+        android:id="@+id/etYourNameMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="@string/sEnterYourMessage"
+        tools:targetApi="o"
+        android:inputType=""
+        tools:ignore="LabelFor" />
+</LinearLayout>

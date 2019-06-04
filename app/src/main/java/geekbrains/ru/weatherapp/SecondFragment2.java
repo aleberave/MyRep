@@ -41,8 +41,8 @@ public class SecondFragment2 extends Fragment {
     ProgressBar loader;
     Typeface weatherFont;
     String city = "";
-    String OPEN_WEATHER_MAP_API = "cbfdb21fa1793c10b14b6b6d00fbef03";
-
+    String OPEN_WEATHER_MAP_API = "f3f2763fe63803beef4851d6365c83bc";
+//     cbfdb21fa1793c10b14b6b6d00fbef03
     // фабричный метод, создает фрагмент и передает параметр
     public static SecondFragment2 create(Parsel parcel) {
         SecondFragment2 secondFragment2 = new SecondFragment2();    // создание

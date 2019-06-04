@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -180,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int optionId = R.layout.m_content_main;
 
         if (id == R.id.nav_about_developer) {
+
             optionId = R.layout.fragment_about_developer;
             findViewById(R.id.m_container_port_2).setVisibility(View.GONE);
 
@@ -187,7 +190,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             parent.removeAllViews();
             View newContent = getLayoutInflater().inflate(optionId, parent, false);
             parent.addView(newContent);
+
+            item.setChecked(true);
+
+
         } else if (id == R.id.nav_callback) {
+
+            Fragment fragment = null;
+            Class fragmentClass;
+
+            fragmentClass = Feedback.class;
+
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }
+
+            ViewGroup parent = findViewById(R.id.m_container1);
+            parent.removeAllViews();
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.m_container1,
+                    Objects.requireNonNull(fragment))
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+
+            item.setChecked(true);
             Toast.makeText(getApplicationContext(), "callback", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
             Toast.makeText(getApplicationContext(), "share", Toast.LENGTH_SHORT).show();

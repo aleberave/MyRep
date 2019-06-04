@@ -61,17 +61,17 @@
     <string name="name" translatable="false">name</string>
     <string name="sys" translatable="false">sys</string>
     <string name="country" translatable="false">country</string>
-    <string name="commaAndSpace" translatable="false">\", \"</string>
+    <string name="commaAndSpace" translatable="false">\, \</string>
     <string name="description" translatable="false">description</string>
     <string name="temp" translatable="false">temp</string>
     <string name="humidity" translatable="false">humidity</string>
-    <string name="TitleHumidity" translatable="false">\"Humidity: \"</string>
+    <string name="TitleHumidity" translatable="false">\Humidity: \</string>
     <string name="procent" translatable="false">%</string>
     <string name="sGradus" translatable="false">°</string>
     <string name="number" translatable="false">%.2f</string>
-    <string name="TitlePressure" translatable="false">\"Pressure: \"</string>
+    <string name="TitlePressure" translatable="false">\Pressure: \</string>
     <string name="pressure" translatable="false">pressure</string>
-    <string name="hPa" translatable="false">\" hPa\"</string>
+    <string name="hPa" translatable="false">\ hPa\</string>
     <string name="dt" translatable="false">dt</string>
     <string name="is" translatable="false">id</string>
     <string name="sunrise" translatable="false">sunrise</string>
@@ -83,4 +83,9 @@
     <string name="cancel" translatable="false">Cancel</string>
     <string name="noInternetConnection" translatable="false">No Internet Connection</string>
     <string name="errorCheckCity" translatable="false">Error, Check City</string>
+
+    <string name="sEnterYourMessage">Enter your message</string>
+    <string name="sEnterYourName">Enter your name</string>
+    <string name="sSend">send</string>
+    <string name="sGet">get</string>
 </resources>
